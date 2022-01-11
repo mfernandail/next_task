@@ -1,13 +1,13 @@
 import Head from 'next/head';
-import { useContext } from 'react';
-import { TaskContext } from '../context';
+import Layout from '../components/Layout';
+import { useTask } from '../context';
 import styles from '../styles/Home.module.css';
 
-export default function Home() {
-   
-  const { hello } = useContext(TaskContext);
+export default function Home() {  
+  const {task} = useTask();
 
-  console.log(hello)
+  console.log(task)
+
   return (
     <div >
       <Head>
@@ -16,8 +16,9 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <h1>{hello}</h1>
-      <h2>{hello}</h2>
+      <Layout>
+        <h1>Hola mundo</h1>
+      </Layout>
 
     </div>
   )

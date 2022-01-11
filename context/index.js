@@ -1,16 +1,19 @@
-import { createContext, useContext } from 'react';
+import { createContext, useContext, useState } from 'react';
 
 export const TaskContext = createContext();
 
-export const useTask = () => {
-  const context = useContext(TaskContext);
-  return context;
-}
+export const useTask = () => useContext(TaskContext);
 
 export const TaskProvider = ({children}) => {
-  let hello = 'mundo';
+  const [task, setTask] = useState([{id: 'id', title: 'Titulo', desc: 'Desc'}]);
+  
   return (
-    <TaskContext.Provider  value={{ hello }}>
+    <TaskContext.Provider  
+      value={{ 
+        task,
+        setTask
+      }}
+    >
       {children}
     </TaskContext.Provider>
   )
