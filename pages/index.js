@@ -1,4 +1,3 @@
-import Head from 'next/head';
 import Layout from '../components/Layout';
 import Tasks from '../components/Tasks';
 import { useTask } from '../context';
@@ -6,10 +5,9 @@ import { useTask } from '../context';
 export default function Home() {  
   const {task} = useTask();
 
-  console.log(task)
-
   return (
     <Layout pageTitle="Home">
+      <div className="flex justify-center">
       {
         task?.length > 0 
           ?
@@ -27,6 +25,7 @@ export default function Home() {
             <h2 className="text-2xl">There are no tasks</h2>
           </div>
       }
+      </div>
     </Layout>
   )
 }

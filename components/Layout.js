@@ -17,7 +17,7 @@ function Layout({children, pageTitle = ''}) {
         
         <Header />
         
-        <main className="px-28 ">
+        <main className="px-28 py-10">
           {children}
         </main>
 
